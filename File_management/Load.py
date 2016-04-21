@@ -31,6 +31,12 @@ def transformer2(tab):
         temp.append(Point(float(line[0]),float(line[1]),int(line[2])))
     return temp
 
+def transformer3(tab):
+    temp = []
+    for line in tab:
+        temp.append(Point(float(line[0]),float(line[1]),float(line[2]),int(line[3])))
+    return temp
+
 def load_csv():
     spam_file="spambase.data"
     spam_data=open(spam_file,'r')
