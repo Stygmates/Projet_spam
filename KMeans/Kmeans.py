@@ -163,7 +163,7 @@ def normalisationcolonne(tab):
 '''
     normalisation d'un tableau de tableau
 '''
-def normalisation(tab):
+def normalisation2(tab):
     temp=[]
     col0=[]
     col1=[]
@@ -241,7 +241,7 @@ if __name__ == '__main__':
     save_csv(dataset)
     cols = [18,2,57]
     tabfiltre = filtrage(dataset, cols)
-    tabnormalise = normalisation(tabfiltre)
+    tabnormalise = normalisation2(tabfiltre)
     tabpoints = (transformer2(tabnormalise))
     affichertab(tabpoints)
     tabcluster = KMeans(tabpoints, 2)
