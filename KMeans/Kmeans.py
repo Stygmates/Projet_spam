@@ -113,9 +113,7 @@ def KMeans(tab,k):
     tempbar.append(tab[0])
     for i in range(1,k):
         tempbar.append(tab[i])
-    #affichertab(tempbar)
 
-    #affichertab(tempbar)
     tabcluster = rangement(tab, tempbar)
     tempbarold = tempbar[:]
     tempbar = tabbarycentre(tabcluster)
@@ -125,10 +123,6 @@ def KMeans(tab,k):
         tabcluster = rangement(tab, tempbar)
         tempbarold = tempbar[:]
         tempbar = tabbarycentre(tabcluster)
-        #affichertab(tempbarold)
-        #affichertabtab(tabcluster)
-        #affichertab(tempbar)
-        #print notequal(tempbar, tempbarold)
             
     return tabcluster
 
@@ -242,9 +236,10 @@ if __name__ == '__main__':
     cols = [18,2,57]
     tabfiltre = filtrage(dataset, cols)
     tabnormalise = normalisation2(tabfiltre)
+    #afficher(tabnormalise)
     tabpoints = (transformer2(tabnormalise))
     #affichertab(tabpoints)
-    #tabcluster = KMeans(tabpoints, 2)
+    tabcluster = KMeans(tabpoints, 2)
     #affichertabcluster(tabcluster)
     
     

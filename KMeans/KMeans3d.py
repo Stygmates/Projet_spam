@@ -241,8 +241,8 @@ if __name__ == '__main__':
     tabnormalise = normalisation3d(tabfiltre)
     afficher(tabnormalise)
     tabpoints = (transformer3(tabnormalise))
-    #affichertab3d(tabpoints)
-    #tabcluster = KMeans3d(tabpoints, 2)
+    affichertab3d(tabpoints)
+    tabcluster = KMeans3d(tabpoints, 2)
     #affichertabcluster3d(tabcluster)
     
     
