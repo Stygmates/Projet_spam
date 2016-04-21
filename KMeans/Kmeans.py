@@ -222,6 +222,18 @@ def moyennecol(tab, numcol):
 
     return m/i
 
+def moyenneseul(tab):
+    return sum(tab, 0.0) / len(tab)
+ 
+def varianceseul(tab):
+    m=moyenneseul(tab)
+    return moyenneseul([(x-m)**2 for x in tab])
+ 
+def ecartypeseul(tab):
+    return varianceseul(tab)**0.5
+ 
+def ecartype(tab,numcol):
+    return ecartypeseul(tab[numcol])
         
 
 if __name__ == '__main__':
