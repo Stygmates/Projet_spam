@@ -6,10 +6,9 @@ Created on 20 avr. 2016
 
 class Point:
     """ Point class represents and manipulates x,y coords. """
-    def __init__(self,x,y,spam):
+    def __init__(self,x,y):
         self.x = x
         self.y = y
-        self.spam = spam
         
     def moyenne(self,p1,p2):
         
@@ -20,10 +19,10 @@ class Point:
 if __name__ == '__main__':
     print("Hello main method")
         
-    p1 = Point(1.0,1.0,0)
-    p2 = Point(4.0,4.0,0)
+    p1 = Point(1.0,1.0)
+    p2 = Point(4.0,4.0)
     
-    p3 = Point(0.0,0.0,0)
+    p3 = Point(0.0,0.0)
     p3.moyenne(p1, p2)
     print(p3.x)
     print(p3.y)

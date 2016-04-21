@@ -10,7 +10,7 @@ from File_management.Load import *
 
 
 def barycentre(tab,taille):
-    p = Point(0.0,0.0,2)
+    p = Point(0.0,0.0)
     for i in range(0,taille):
         p.x = p.x + tab[i].x
         p.y = p.y + tab[i].y
@@ -23,8 +23,8 @@ def barycentre(tab,taille):
 '''
 def plus_proche(p1,p2,p3):
     
-    distance1 = sqrt((p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y))
-    distance2 = sqrt((p1.x-p3.x)*(p1.x-p3.x)+(p1.y-p3.y)*(p1.y-p3.y))
+    distance1 = distance(p1, p2)
+    distance2 = distance(p1, p3)
     
     if (distance1 <= distance2):
         return p2
@@ -72,12 +72,12 @@ def rangement(tab,tabcluster):
         temp[indice_barycentre_plus_proche_tab(tabcluster, j)].append(j)
     return temp
 
-def affichertabcluster(tab):
+def affichertabtab(tab):
     print("[")
     for line in tab:
-        print("[",end=' ')
+        print("[")
         for i in line:
-            print("(" + str(i.x) + "," + str(i.y) + ")",end=' ')
+            print("(" + str(i.x) + "," + str(i.y) + ")")
         print("]")
     print("]")
 
@@ -113,7 +113,6 @@ def KMeans(tab,k):
     tempbar.append(tab[0])
     for i in range(1,k):
         tempbar.append(tab[i])
-
     tabcluster = rangement(tab, tempbar)
     tempbarold = tempbar[:]
     tempbar = tabbarycentre(tabcluster)
@@ -157,15 +156,13 @@ def normalisationcolonne(tab):
 '''
     normalisation d'un tableau de tableau
 '''
-def normalisation2(tab):
+def normalisation(tab):
     temp=[]
     col0=[]
     col1=[]
-    colspam=[]
     for line in tab:
         col0.append(float(line[0]))
         col1.append(float(line[1]))
-        colspam.append(int(line[2]))
     col0n = normalisationcolonne(col0)
     col1n = normalisationcolonne(col1) 
     
@@ -173,7 +170,6 @@ def normalisation2(tab):
         tempt = []
         tempt.append(col0n[i])
         tempt.append(col1n[i])
-        tempt.append(colspam[i])
         temp.append(tempt)
     return temp    
 '''
@@ -233,13 +229,22 @@ if __name__ == '__main__':
     
     dataset = load_csv()
     save_csv(dataset)
-    cols = [18,2,57]
+    cols = [18,2]
     tabfiltre = filtrage(dataset, cols)
-    tabnormalise = normalisation2(tabfiltre)
-    #afficher(tabnormalise)
+    tabnormalise = normalisation(tabfiltre)
+    moy = moyennecol(tabnormalise, 1)
+    
     tabpoints = (transformer2(tabnormalise))
-    #affichertab(tabpoints)
+    #affichertab(newtab3)
     tabcluster = KMeans(tabpoints, 2)
-    #affichertabcluster(tabcluster)
+    affichertabtab(tabcluster)
+    
+    #affichertab(barycentre(tabcluster))
+    #affichertabtab(tab_cluster_range(tabcluster))
+    #affichertab(extraction(tabcluster, 100))
+    #afficher(dataset)
+    #affichertabtab(KMeans(newtab3,2))
+    
+    
     
     

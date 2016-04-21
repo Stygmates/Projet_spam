@@ -28,13 +28,7 @@ def filtrage(tab,tabcoldemande):
 def transformer2(tab):
     temp = []
     for line in tab:
-        temp.append(Point(float(line[0]),float(line[1]),int(line[2])))
-    return temp
-
-def transformer3(tab):
-    temp = []
-    for line in tab:
-        temp.append(Point(float(line[0]),float(line[1]),float(line[2]),int(line[3])))
+        temp.append(Point(float(line[0]),float(line[1])))
     return temp
 
 def load_csv():
